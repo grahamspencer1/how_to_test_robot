@@ -28,21 +28,24 @@ class TestRobot < MiniTest::Test
   end
 
   def test_that_standard_robot_needing_repairs_sent_to_station_3
-    skip
-    # arrange
 
-    # act
+    bender = Robot.new
+    bender.needs_repairs = true
 
-    # assert
+    result = bender.station
+
+    assert_equal(3, result)
+
   end
 
   def test_that_robot_in_good_condition_sent_to_station_4
-    skip
-    # arrange
 
-    # act
+    terminator = Robot.new
 
-    # assert
+    result = terminator.station
+
+    assert_equal(4, result)
+
   end
 
   def test_prioritize_tasks_with_empty_todo_list_returns_negative_one
