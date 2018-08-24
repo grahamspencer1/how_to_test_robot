@@ -16,12 +16,15 @@ class TestRobot < MiniTest::Test
   end
 
   def test_that_vintage_robot_needing_repairs_sent_to_station_2
-    skip
-    # arrange
 
-    # act
+    megazord = Robot.new
+    megazord.vintage_model = true
+    megazord.needs_repairs = true
 
-    # assert
+    result = megazord.station
+
+    assert_equal(2, result)
+
   end
 
   def test_that_standard_robot_needing_repairs_sent_to_station_3
