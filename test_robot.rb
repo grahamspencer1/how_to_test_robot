@@ -62,30 +62,34 @@ class TestRobot < MiniTest::Test
   def test_prioritize_tasks_with_todos_returns_max_todo_value
 
     johnny5 = Robot.new
-    johnny5.todos = ["work"]
+    johnny5.todos = [1, 2, 5]
 
     result = johnny5.prioritize_tasks
 
-    assert_equal("work", result)
+    assert_equal(5, result)
 
   end
 
   def test_workday_on_day_off_returns_false
-    skip
-    # arrange
 
-    # act
+    crow = Robot.new
+    crow.day_off = "Saturday"
 
-    # assert
+    result = crow.workday?("Saturday")
+
+    assert_equal(false, result)
+
   end
 
   def test_workday_not_day_off_returns_true
-    skip
-    # arrange
 
-    # act
+    servo = Robot.new
+    servo.day_off = "Saturday"
 
-    # assert
+    result = servo.workday?("Friday")
+
+    assert_equal(true, result)
+
   end
 
 end
